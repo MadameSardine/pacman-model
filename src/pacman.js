@@ -14,22 +14,39 @@ Pacman.prototype.gainOnePoint = function() {
 };
 
 Pacman.prototype.moveRight = function() {
-  this.maze.cells[this.location].content = 'empty';
+  this._leaveCell(this.location);
   this.location +=1;
-  if(this.maze.cells[this.location].content instanceof Dot)
-    this.pointCount +=1;
-
-  this.maze.cells[this.location].content = this;
+  this._enterCell(this.location)
 };
 
 Pacman.prototype.moveLeft = function() {
+  this._leaveCell(this.location);
   this.location -=1;
+  this._enterCell(this.location)
 };
 
 Pacman.prototype.moveUp = function() {
+  this._leaveCell(this.location);
   this.location -= this.maze.width;
+  this._enterCell(this.location)
 };
 
 Pacman.prototype.moveDown = function() {
+  this._leaveCell(this.location);
   this.location += this.maze.width;
+  this._enterCell(this.location)
+};
+
+Pacman.prototype._leaveCell = function(location) {
+  this.maze.cells[location].content = 'empty'
+};
+
+Pacman.prototype._enterCell = function(location) {
+  this._eatDot(location);
+  this.maze.cells[location].content = this
+};
+
+Pacman.prototype._eatDot = function(location) {
+  if(this.maze.cells[location].content instanceof Dot)
+    this.pointCount +=1;
 };
