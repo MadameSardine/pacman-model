@@ -67,8 +67,6 @@ describe ("Pacman", function (){
       pacman.maze.cells[1].content = dot;
       pacman.location = 0
       pacman.moveRight();
-            console.log(pacman.location)
-
       expect(pacman.maze.cells[1].content).toEqual(pacman)
     });
 
@@ -78,6 +76,14 @@ describe ("Pacman", function (){
       pacman.location = 0
       pacman.moveRight();
       expect(pacman.pointCount).toEqual(1)
+    });
+
+    it("can't move to a cell containing a wall",function(){
+      var wall = new Wall;
+      pacman.maze.cells[1].content = wall;
+      pacman.location = 0;
+      pacman.moveRight();
+      expect(pacman.location).toEqual(0);
     });
 
 
