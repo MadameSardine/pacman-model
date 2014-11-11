@@ -4,7 +4,7 @@ describe('Maze',function(){
   var cell;
 
   beforeEach(function(){
-    maze = new Maze(30, 20);
+    maze = new Maze(30, 30);
     cell = new Cell
   });
 
@@ -15,11 +15,11 @@ describe('Maze',function(){
     });
 
     it('has a height of 30',function(){
-      expect(maze.height).toEqual(20);
+      expect(maze.height).toEqual(30);
     });
 
     it('has a size equal to width times height',function(){
-      expect(maze.size).toEqual(600);
+      expect(maze.size).toEqual(900);
     });
 
     it('has no cell on initialize',function(){
@@ -28,7 +28,7 @@ describe('Maze',function(){
 
     it('receives a number of cells equal to its size when the game starts',function(){
       maze.generate();
-      expect(maze.cells.length).toEqual(600);
+      expect(maze.cells.length).toEqual(900);
     });
 
     it('cells are empty',function(){
@@ -38,6 +38,13 @@ describe('Maze',function(){
       }
     });
 
+    it('can have a pacman',function(){
+      pacman = new Pacman
+      maze.addPacman(pacman)
+      expect(maze.pacman).toEqual(pacman);
+      expect(pacman.maze).toEqual(maze);
+    });
+
 
   });
 
@@ -45,10 +52,11 @@ describe('Maze',function(){
 
     beforeEach(function(){
       maze.generate();
+      var pacman = new Pacman();
+      maze.addPacman(pacman);
     });
 
     it('can place Pacman', function(){
-      var pacman = new Pacman;
       maze.place(pacman, 0)
       expect(maze.cells[0].content).toEqual(pacman);
     });
@@ -71,9 +79,6 @@ describe('Maze',function(){
       expect(maze.cells[3].content).toEqual(ghost);
     });
 
-    // it('can track an object that moves left one space', function(){
-
-    // });
 
   });
 

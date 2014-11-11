@@ -11,6 +11,12 @@ Maze.prototype.generate = function() {
   }
 };
 
+Maze.prototype.addPacman = function(pacman) {
+  this.pacman = pacman;
+  this.pacman.maze = this;
+};
+
+
 function Cell(){
   this.content = 'empty';
 };

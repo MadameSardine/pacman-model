@@ -44,4 +44,3 @@
 ### Empty space
 --------------
 * takes 1 space on the grid
----------------

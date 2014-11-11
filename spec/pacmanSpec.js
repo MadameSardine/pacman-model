@@ -3,7 +3,10 @@ describe ("Pacman", function (){
   var pacman;
 
   beforeEach(function(){
+    maze = new Maze(30, 30);
+    maze.generate();
     pacman = new Pacman();
+    maze.addPacman(pacman);
 
   });
 
@@ -28,6 +31,53 @@ describe ("Pacman", function (){
     it('can gain one point',function(){
       pacman.gainOnePoint();
       expect(pacman.pointCount).toEqual(1);
+    });
+
+    it('has a location',function(){
+      expect(pacman.location).toEqual(466)
+    });
+
+    it('can move by one cell right',function(){
+      pacman.moveRight();
+      expect(pacman.location).toEqual(467)
+
+    })
+
+    it('can move by one cell left',function(){
+      pacman.moveLeft();
+      expect(pacman.location).toEqual(465)
+
+    })
+
+     it('can move by one cell up',function(){
+      pacman.moveUp();
+      expect(pacman.location).toEqual(436)
+
+    })
+
+      it('can move by one cell down',function(){
+      pacman.moveDown();
+      expect(pacman.location).toEqual(496)
+
+    })
+
+
+    it('can move to a cell containing a dot',function(){
+      var dot = new Dot;
+      pacman.maze.cells[1].content = dot;
+      pacman.location = 0
+      pacman.moveRight();
+            console.log(pacman.location)
+
+      expect(pacman.maze.cells[1].content).toEqual(pacman)
+    });
+
+    it('knows if has eaten a dot',function(){
+      var dot = new Dot;
+      pacman.maze.cells[1].content = dot;
+      pacman.location = 0
+      pacman.moveRight();
+      expect(pacman.pointCount).toEqual(1)
     });
 
 
