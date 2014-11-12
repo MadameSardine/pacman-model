@@ -20,6 +20,10 @@ describe ("Pacman", function (){
       expect(pacman.pointCount).toEqual(0);
     });
 
+    it('has a name', function() {
+      expect(pacman.name).toEqual('pacman')
+
+    })
   });
 
   describe('when playing',function(){

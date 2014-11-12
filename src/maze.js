@@ -16,17 +16,6 @@ Maze.prototype.addPacman = function(pacman) {
   this.pacman.maze = this;
 };
 
-
-function Cell(){
-  this.content = 'empty';
-};
-
-function Wall(){};
-
-function Dot(){};
-
-function Ghost(){};
-
 Maze.prototype.place = function(object, index) {
   this.cells[index].content = object;
 };

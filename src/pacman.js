@@ -2,6 +2,7 @@ function Pacman(){
   this.lifeCount = 3
   this.pointCount = 0
   this.location = 466;
+  this.name = 'pacman'
 
 };
 
