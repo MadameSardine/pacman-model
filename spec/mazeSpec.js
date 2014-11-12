@@ -34,7 +34,7 @@ describe('Maze',function(){
     it('cells are empty',function(){
       maze.generate()
       for(var i = 1; i < maze.size; i++){
-        expect(maze.cells[i].content).toEqual('empty')
+        expect(maze.cells[i].content.name).toEqual('available')
       }
     });
 

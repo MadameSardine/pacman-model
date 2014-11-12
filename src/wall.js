@@ -1,1 +1,3 @@
-function Wall(){};
+function Wall(){
+  this.name = 'wall'
+};

@@ -1,4 +1,3 @@
 function Cell(){
-  this.content = 'empty';
-  this.content.name = 'available'
+  this.content = new Corridor;
 };

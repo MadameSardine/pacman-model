@@ -1,1 +1,3 @@
-function Ghost(){};
+function Ghost(){
+  this.name = 'ghost'
+};
