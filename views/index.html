@@ -6,6 +6,8 @@
   <title>pacman</title>
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet/less" type="text/css" href="/less/app.less">
+  <script src="/js/jquery.js"></script>
+
 </head>
 
 <body>
@@ -35,9 +37,35 @@
       </div>
     </div>
 
+    <div class='mazecontainer'></div>
 
 
+    <style>
+     .cell {
+      background-color: gray;
+      height: 40px;
+      width: 40px;
+      display: inline-block;
+      margin: 1px;
+      color: white;
+    }
 
+    div.mazecontainer {
+      width: 1300px;
+    }
+
+    .wallcell {
+      color: white;
+      background-color: blue;
+      height: 40px;
+      width: 40px;
+      display: inline-block;
+      margin: 1px;
+      padding-top: 2px;
+    }
+    </style>
+
+  <script src="/js/maze.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular-route/angular-route.js"></script>
   <script src="/bower_components/less/dist/less-1.6.1.js"></script>
