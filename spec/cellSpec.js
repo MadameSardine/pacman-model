@@ -11,8 +11,11 @@ describe("Cell", function() {
 
   it("has available space", function() {
     expect(cell.content.name).toEqual('available')
-
   })
+
+  it("doesn't have a temporary content",function(){
+    expect(cell.temporaryContent).toEqual(null)
+  });
 
  })
 

@@ -45,6 +45,13 @@ describe('Maze',function(){
       expect(pacman.maze).toEqual(maze);
     });
 
+    it('can add a ghost',function(){
+      ghost = new Ghost
+      maze.addGhost(ghost)
+      expect(maze.ghost).toEqual(ghost);
+      expect(ghost.maze).toEqual(maze);
+    });
+
 
   });
 
@@ -79,9 +86,6 @@ describe('Maze',function(){
       expect(maze.cells[3].content).toEqual(ghost);
     });
 
-
   });
-
-
 
 });

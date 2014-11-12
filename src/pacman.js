@@ -55,10 +55,11 @@ Pacman.prototype.moveDown = function() {
 };
 
 Pacman.prototype._leaveCell = function(location) {
-  this.maze.cells[location].content = 'empty'
+  this.maze.cells[location].content = new Corridor;
 };
 
 Pacman.prototype._enterCell = function(location) {
+  this._checkGhost(location);
   this._eatDot(location);
   this.maze.cells[location].content = this
 };
@@ -66,4 +67,9 @@ Pacman.prototype._enterCell = function(location) {
 Pacman.prototype._eatDot = function(location) {
   if(this.maze.cells[location].content instanceof Dot)
     this.pointCount +=1;
+};
+
+Pacman.prototype._checkGhost = function(location) {
+  if(this.maze.cells[location].content instanceof Ghost)
+    this.lifeCount -=1;
 };

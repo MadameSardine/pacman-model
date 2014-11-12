@@ -1,6 +1,7 @@
 describe ("Pacman", function (){
 
   var pacman;
+  var maze;
 
   beforeEach(function(){
     maze = new Maze(30, 30);
@@ -74,6 +75,15 @@ describe ("Pacman", function (){
       expect(pacman.maze.cells[1].content).toEqual(pacman)
     });
 
+    it('eats dots',function(){
+      var dot = new Dot;
+      pacman.maze.cells[1].content = dot;
+      pacman.location = 0
+      pacman.moveRight();
+      pacman.moveRight();
+      expect(pacman.maze.cells[1].content.name).toEqual('available')
+    });
+
     it('knows if has eaten a dot',function(){
       var dot = new Dot;
       pacman.maze.cells[1].content = dot;
@@ -88,6 +98,14 @@ describe ("Pacman", function (){
       pacman.location = 0;
       pacman.moveRight();
       expect(pacman.location).toEqual(0);
+    });
+
+    it('loses a life if it touches a ghost',function(){
+      var ghost = new Ghost;
+      pacman.location = 0;
+      pacman.maze.cells[1].content = ghost;
+      pacman.moveRight();
+      expect(pacman.lifeCount).toEqual(2)
     });
 
 
